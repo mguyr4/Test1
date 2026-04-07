@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pub Finder - Meet in the Middle</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🍺 Pub Finder</h1>
+      <p class="subtitle">Find a pub equidistant between two people</p>
+    </header>
+
+    <div class="inputs">
+      <div class="person-input">
+        <label for="location1">Person 1's Location</label>
+        <div class="input-row">
+          <input type="text" id="location1" placeholder="e.g. London Bridge, London" autocomplete="off" />
+          <button class="locate-btn" data-person="1" title="Use my location">📍</button>
+        </div>
+        <div class="suggestions" id="suggestions1"></div>
+      </div>
+
+      <div class="midpoint-icon">⟷</div>
+
+      <div class="person-input">
+        <label for="location2">Person 2's Location</label>
+        <div class="input-row">
+          <input type="text" id="location2" placeholder="e.g. Canary Wharf, London" autocomplete="off" />
+          <button class="locate-btn" data-person="2" title="Use my location">📍</button>
+        </div>
+        <div class="suggestions" id="suggestions2"></div>
+      </div>
+    </div>
+
+    <div class="options">
+      <label for="radius">Search radius:</label>
+      <select id="radius">
+        <option value="500">500m</option>
+        <option value="1000" selected>1 km</option>
+        <option value="2000">2 km</option>
+        <option value="5000">5 km</option>
+      </select>
+      <label for="limit">Max results:</label>
+      <select id="limit">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+      </select>
+    </div>
+
+    <button id="findBtn" class="find-btn">Find Pubs</button>
+
+    <div id="status" class="status hidden"></div>
+
+    <div id="results" class="results hidden">
+      <div id="map"></div>
+      <div id="pub-list"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
