@@ -10,6 +10,11 @@ body {
   color: #e0e0e0;
   min-height: 100vh;
   padding: 20px;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  /* Prevent text size adjustment on orientation change */
+  -webkit-text-size-adjust: 100%;
 }
 
 .container {
@@ -70,9 +75,10 @@ header h1 {
   border: 1px solid #2d3561;
   border-radius: 8px;
   color: #e0e0e0;
-  font-size: 0.95rem;
+  font-size: 16px; /* Must be >=16px to prevent iOS auto-zoom */
   outline: none;
   transition: border-color 0.2s;
+  -webkit-appearance: none;
 }
 
 .input-row input:focus {
@@ -105,10 +111,11 @@ header h1 {
   z-index: 1000;
   max-height: 220px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .suggestion-item {
-  padding: 10px 14px;
+  padding: 14px; /* Larger tap target on touch screens */
   cursor: pointer;
   font-size: 0.9rem;
   border-bottom: 1px solid #1e2d4a;
@@ -146,8 +153,9 @@ header h1 {
   border: 1px solid #2d3561;
   border-radius: 6px;
   color: #e0e0e0;
-  font-size: 0.9rem;
+  font-size: 16px; /* Must be >=16px to prevent iOS auto-zoom */
   cursor: pointer;
+  -webkit-appearance: none;
 }
 
 .find-btn {

@@ -57,11 +57,14 @@ async function fetchSuggestions(query, suggestionsEl, input, person) {
       const div = document.createElement('div');
       div.className = 'suggestion-item';
       div.textContent = item.display_name;
-      div.addEventListener('click', () => {
+      const selectSuggestion = (e) => {
+        e.preventDefault();
         input.value = item.display_name;
         state[`loc${person}`] = { lat: parseFloat(item.lat), lon: parseFloat(item.lon), display_name: item.display_name };
         suggestionsEl.innerHTML = '';
-      });
+      };
+      div.addEventListener('touchend', selectSuggestion);
+      div.addEventListener('click', selectSuggestion);
       suggestionsEl.appendChild(div);
     });
   } catch {
@@ -75,6 +78,11 @@ document.querySelectorAll('.locate-btn').forEach(btn => {
     const person = btn.dataset.person;
     if (!navigator.geolocation) {
       showStatus('Geolocation is not supported by your browser.', 'error');
+      return;
+    }
+    // iOS Safari requires HTTPS for geolocation
+    if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+      showStatus('The GPS button requires HTTPS. Please type your location manually instead.', 'error');
       return;
     }
     btn.textContent = '⏳';
