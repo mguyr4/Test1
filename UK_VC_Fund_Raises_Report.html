@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Venture Capital Fund Raises - Last 12 Months</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a2e;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 24px;
+        }
+
+        .summary-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .card .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .card .value.gbp { color: #0d6efd; }
+        .card .value.usd { color: #198754; }
+        .card .value.eur { color: #6f42c1; }
+        .card .value.count { color: #dc3545; }
+
+        .table-wrapper {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        thead {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        thead th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
+        }
+
+        thead th:first-child {
+            border-radius: 12px 0 0 0;
+        }
+
+        thead th:last-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e9ecef;
+            transition: background-color 0.15s;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f3f5;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        tbody td {
+            padding: 12px 16px;
+            vertical-align: top;
+        }
+
+        td:nth-child(1) {
+            text-align: center;
+            color: #6c757d;
+            font-weight: 600;
+            width: 40px;
+        }
+
+        td:nth-child(2) {
+            font-weight: 600;
+            color: #1a1a2e;
+            min-width: 280px;
+        }
+
+        td:nth-child(3) {
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+
+        td:nth-child(4) {
+            white-space: nowrap;
+            min-width: 100px;
+        }
+
+        td:nth-child(5) {
+            min-width: 300px;
+            color: #495057;
+            font-size: 0.85rem;
+        }
+
+        td:nth-child(6) {
+            color: #6c757d;
+            font-size: 0.8rem;
+            min-width: 140px;
+        }
+
+        .amount-gbp { color: #0d6efd; }
+        .amount-usd { color: #198754; }
+        .amount-eur { color: #6f42c1; }
+
+        .section-divider {
+            background: #f8f9fa;
+        }
+
+        .section-divider td {
+            padding: 8px 16px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6c757d;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .context-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 40px;
+        }
+
+        .context-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+        }
+
+        .context-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .context-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f3f5;
+            color: #495057;
+        }
+
+        .context-section li:last-child {
+            border-bottom: none;
+        }
+
+        .context-section li strong {
+            color: #1a1a2e;
+        }
+
+        footer {
+            text-align: center;
+            color: #adb5bd;
+            font-size: 0.8rem;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        @media print {
+            body { padding: 10px; background: #fff; }
+            .table-wrapper { box-shadow: none; }
+            thead { background: #333; }
+            tbody tr:hover { background: none; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5rem; }
+            .summary-cards { flex-direction: column; align-items: center; }
+            table { font-size: 0.8rem; }
+            td:nth-child(5) { min-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>UK Venture Capital Fund Raises</h1>
+            <div class="subtitle">Comprehensive tracker | April 2024 &ndash; April 2026 | 38 funds tracked</div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <div class="label">Total Funds</div>
+                <div class="value count">38</div>
+            </div>
+            <div class="card">
+                <div class="label">GBP Raised</div>
+                <div class="value gbp">&pound;1.58bn</div>
+            </div>
+            <div class="card">
+                <div class="label">USD Raised</div>
+                <div class="value usd">$5.12bn</div>
+            </div>
+            <div class="card">
+                <div class="label">EUR Raised</div>
+                <div class="value eur">&euro;1.28bn</div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fund / Firm</th>
+                        <th>Amount Raised</th>
+                        <th>Close Date</th>
+                        <th>Investors / LPs</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="section-divider"><td colspan="6">Mega-funds (&gt;$500m)</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Balderton Capital (Early Stage IX + Growth II)</td>
+                        <td class="amount-usd">$1.30bn</td>
+                        <td>Aug 2024</td>
+                        <td>Institutional LPs (oversubscribed; first simultaneous early+growth raise)</td>
+                        <td>TechCrunch / PitchBook</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Atomico (Venture VI + Growth VI)</td>
+                        <td class="amount-usd">$1.24bn</td>
+                        <td>Sep 2024</td>
+                        <td>Global institutional investors (50%+ increase on prior fund)</td>
+                        <td>TechCrunch / Atomico</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>PXN Group (Par Equity + Praetura merger AUM)</td>
+                        <td class="amount-gbp">&pound;670m</td>
+                        <td>Jun 2025</td>
+                        <td>Family offices, institutional investors, British Business Bank (Regional Angels Programme), NPIF II</td>
+                        <td>Sifted / Maddyness</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Cherry Ventures (Fund V + Opportunity Fund)</td>
+                        <td class="amount-usd">$500m</td>
+                        <td>Feb 2025</td>
+                        <td>Ilkka Paananen (Supercell), Miki Kusi (Wolt), Jochan Enghert (Flix); 2x oversubscribed</td>
+                        <td>TechCrunch / Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Phoenix Court / LocalGlobe (new funds incl. Solar &amp; Basecamp)</td>
+                        <td class="amount-usd">$500m</td>
+                        <td>2025</td>
+                        <td>Institutional investors (nearing final close Oct 2025)</td>
+                        <td>Sifted / Silicon Canals</td>
+                    </tr>
+
+                    <tr class="section-divider"><td colspan="6">Large funds ($200m &ndash; $500m)</td></tr>
+                    <tr>
+                        <td>6</td>
+                        <td>20VC (Fund III - Seed + Series A)</td>
+                        <td class="amount-usd">$400m</td>
+                        <td>Oct 2024</td>
+                        <td>MIT Investment Management, RIT Capital Partners, Mubadala; US LPs ~50%</td>
+                        <td>TechCrunch / PitchBook</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Evantic Capital (Fund I - B2B AI)</td>
+                        <td class="amount-eur">&euro;341m</td>
+                        <td>Sep 2025</td>
+                        <td>140 founders/operators ('The Legends'); ex-Sequoia partner Matt Miller</td>
+                        <td>EU-Startups / Bloomberg</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Atempo Growth (Fund II - Growth Debt)</td>
+                        <td class="amount-eur">&euro;300m</td>
+                        <td>Apr 2025</td>
+                        <td>Santander (anchor, up to &euro;160m), British Business Investments, EIF, DECALIA</td>
+                        <td>Santander / EU-Startups</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Lakestar (Continuation Fund I)</td>
+                        <td class="amount-usd">$265m</td>
+                        <td>Aug 2025</td>
+                        <td>Lexington Partners (lead), Industry Ventures, Performance Equity Management</td>
+                        <td>Bloomberg / Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>2150 (Fund II - Climate Tech)</td>
+                        <td class="amount-eur">&euro;210m</td>
+                        <td>Jan 2026</td>
+                        <td>Viessmann Group, Chr. Augustinus Fabrikker, Novo Holdings, EIFO, Church Pension Group</td>
+                        <td>EU-Startups / Tech.eu</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>IQ Capital (Fund IV - Deep Tech)</td>
+                        <td class="amount-usd">$200m</td>
+                        <td>2025</td>
+                        <td>Institutional investors (AUM reached $1bn across deep tech)</td>
+                        <td>Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>IQ Capital (Growth Fund II)</td>
+                        <td class="amount-usd">$200m</td>
+                        <td>2025</td>
+                        <td>Institutional investors</td>
+                        <td>Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>British Growth Partnership (Fund I - first close)</td>
+                        <td class="amount-gbp">&pound;200m</td>
+                        <td>Apr 2026</td>
+                        <td>Aegon UK, NatWest Cushon, M&amp;G; London CIV (LGPS pool)</td>
+                        <td>British Business Bank / GOV.UK</td>
+                    </tr>
+
+                    <tr class="section-divider"><td colspan="6">Mid-size funds ($50m &ndash; $200m)</td></tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Seedcamp (Fund VI)</td>
+                        <td class="amount-usd">$180m</td>
+                        <td>2025</td>
+                        <td>200+ global investors</td>
+                        <td>Sifted / Seedcamp</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Salica Investments (Growth Debt Fund II)</td>
+                        <td class="amount-gbp">&pound;150m</td>
+                        <td>Oct 2025</td>
+                        <td>British Business Bank (&pound;30m), West Yorkshire Pension Fund (&pound;30m), institutional LPs</td>
+                        <td>British Business Bank / TFN</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Notion Capital (Growth Opportunities III)</td>
+                        <td class="amount-eur">&euro;114m</td>
+                        <td>Sep 2025</td>
+                        <td>Not disclosed</td>
+                        <td>EU-Startups</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>OpenOcean (Fund IV - AI/Data/Software)</td>
+                        <td class="amount-eur">&euro;100m</td>
+                        <td>H1 2025</td>
+                        <td>Institutional LPs (targeting &euro;130m final close)</td>
+                        <td>Sifted / Vestbee</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Volution (Fund II - UK Scale-ups)</td>
+                        <td class="amount-usd">$100m</td>
+                        <td>Apr 2025</td>
+                        <td>SBI Investment Co. (Japan) as co-GP; returning LPs from Fund I</td>
+                        <td>Tech.eu / Goodwin</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>DIG Ventures (B2B SaaS/AI Fund)</td>
+                        <td class="amount-usd">$100m</td>
+                        <td>2025</td>
+                        <td>Not disclosed</td>
+                        <td>Vestbee</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Episode 1 (Fund III)</td>
+                        <td class="amount-usd">$95m</td>
+                        <td>Feb 2024</td>
+                        <td>Institutional investors</td>
+                        <td>TechCrunch</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>Albion VCTs (DeepTech/Healthcare/SaaS)</td>
+                        <td class="amount-gbp">&pound;90m</td>
+                        <td>Dec 2025</td>
+                        <td>VCT investors (oversubscribed from &pound;60m target, triggered &pound;30m overallotment)</td>
+                        <td>TFN</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Backed VC (Fund III - DeepTech)</td>
+                        <td class="amount-eur">&euro;86m</td>
+                        <td>Nov 2025</td>
+                        <td>Isomer Capital, Wunderland Capital, US family offices, wealth management firms</td>
+                        <td>EU-Startups / Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Mercia (Northern VCTs - Supplemental Offer)</td>
+                        <td class="amount-gbp">&pound;80m</td>
+                        <td>2025/26</td>
+                        <td>VCT investors</td>
+                        <td>Mercia Asset Management</td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Concept Ventures (Fund II - Pre-Seed)</td>
+                        <td class="amount-eur">&euro;75m</td>
+                        <td>Sep 2025</td>
+                        <td>Founders of ElevenLabs, Wayve, FACEIT; US institutional investors</td>
+                        <td>EU-Startups</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Par Equity (Scale-Up Fund)</td>
+                        <td class="amount-gbp">&pound;75m</td>
+                        <td>Jun 2025</td>
+                        <td>Family offices, institutional investors</td>
+                        <td>Sifted / Angel Capital Scotland</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Ada Ventures (Fund II)</td>
+                        <td class="amount-gbp">&pound;63m</td>
+                        <td>Mar 2024</td>
+                        <td>British Patient Capital, institutional investors</td>
+                        <td>Sifted / TechCrunch</td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Playfair Capital (Fund III - Pre-Seed)</td>
+                        <td class="amount-gbp">&pound;57m</td>
+                        <td>2025</td>
+                        <td>Not disclosed</td>
+                        <td>Playfair / Visible.vc</td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Outward VC (Fund II - first close)</td>
+                        <td class="amount-gbp">&pound;51m</td>
+                        <td>2025</td>
+                        <td>British Business Bank (&pound;30m cornerstone)</td>
+                        <td>British Business Bank</td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Mercuri (Fund II)</td>
+                        <td class="amount-gbp">&pound;50m</td>
+                        <td>2025</td>
+                        <td>The Scott Trust (anchor in Fund I)</td>
+                        <td>Visible.vc</td>
+                    </tr>
+
+                    <tr class="section-divider"><td colspan="6">Smaller funds (&lt;$50m)</td></tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Meridian Health Ventures (HealthTech Fund)</td>
+                        <td class="amount-eur">&euro;45m</td>
+                        <td>May 2025</td>
+                        <td>Guy's &amp; St Thomas' NHS Trust, King's College Hospital, UCL Hospitals, Cedars-Sinai (US)</td>
+                        <td>EU-Startups / Vestbee</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Triple Point Venture VCT (New Offer)</td>
+                        <td class="amount-gbp">&pound;45m</td>
+                        <td>2025/26</td>
+                        <td>VCT investors (&pound;10m + &pound;35m overallotment facility)</td>
+                        <td>Triple Point</td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Araya Ventures (Super Angel Fund)</td>
+                        <td class="amount-usd">$26m</td>
+                        <td>Jul 2025</td>
+                        <td>British Business Investments (&pound;5m cornerstone), Cendana Capital, Isomer Capital, RSJ Investments</td>
+                        <td>Yahoo Finance / Vestbee</td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Molten Ventures VCT (New Offer)</td>
+                        <td class="amount-gbp">&pound;20m</td>
+                        <td>Feb 2026</td>
+                        <td>VCT investors (&pound;10m initial + &pound;10m overallotment)</td>
+                        <td>Molten Ventures</td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>Baobab Ventures (Solo GP - AI/Robotics/Defence)</td>
+                        <td class="amount-usd">$15m</td>
+                        <td>Q4 2025</td>
+                        <td>Cendana Capital, Isomer Capital, RSJ Investments, Emergence Ventures</td>
+                        <td>Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Fuel Ventures VCT (New Offer)</td>
+                        <td class="amount-gbp">&pound;12m</td>
+                        <td>2025/26</td>
+                        <td>VCT investors</td>
+                        <td>Fuel Ventures</td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Ascension Ventures (Regional Fund)</td>
+                        <td class="amount-eur">&euro;12m</td>
+                        <td>Jan 2026</td>
+                        <td>EIF commitment; supporting regional early-stage founders</td>
+                        <td>BeBeez</td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Onstage (Early-Stage Fund)</td>
+                        <td class="amount-gbp">&pound;10m</td>
+                        <td>Q4 2025</td>
+                        <td>Peter Simon, Alex Chesterman; GPs from Concept Ventures, Creator Ventures, Chapter One, EPISODE17</td>
+                        <td>Sifted</td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Octopus Ventures (Pre-Seed Fund)</td>
+                        <td class="amount-gbp">&pound;10m</td>
+                        <td>2025</td>
+                        <td>Octopus Group</td>
+                        <td>Sifted</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="context-section">
+            <h2>Market Context</h2>
+            <ul>
+                <li><strong>UK VCs raised $3.7bn in new funds in 2025</strong> (BVCA), down 56% YoY but viewed as a narrow snapshot</li>
+                <li><strong>UK VC investment reached $23.6bn in 2025</strong>, a 35% increase on 2024 and the first annual growth in four years</li>
+                <li><strong>AI startups raised a record $7.9bn</strong> in UK venture funding in 2025, accounting for 33% of all VC investment</li>
+                <li><strong>Fintech remained the most funded sector</strong> at $6.6bn across 300+ rounds in 2025</li>
+                <li><strong>London attracted $17.7bn</strong> in venture capital, followed by Cambridge ($2.2bn) and Oxford ($707m)</li>
+                <li><strong>British Growth Partnership</strong> targets raising at least &pound;2bn from pension funds over the next five years</li>
+                <li><strong>EIS/SEIS limits widened</strong> from April 2026, boosting tax-efficient VC investment incentives</li>
+            </ul>
+        </div>
+
+        <div class="context-section">
+            <h2>Sources</h2>
+            <ul>
+                <li>Sifted &bull; TechCrunch &bull; Bloomberg &bull; PitchBook (public articles)</li>
+                <li>EU-Startups &bull; Vestbee &bull; SeedBlink &bull; Tech.eu &bull; Silicon Canals</li>
+                <li>British Business Bank &bull; GOV.UK &bull; BVCA / UK Private Capital</li>
+                <li>Private Equity Wire &bull; Yahoo Finance &bull; TFN (Tech Funding News)</li>
+                <li>Santander &bull; Goodwin &bull; Mercia Asset Management &bull; Visible.vc</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Report generated 8 April 2026 &bull; Data compiled from publicly available sources</p>
+            <p>CSV data available in <code>uk_vc_fund_raises.csv</code> &bull; Scraper: <code>uk_vc_scraper.py</code></p>
+        </footer>
+    </div>
+</body>
+</html>
