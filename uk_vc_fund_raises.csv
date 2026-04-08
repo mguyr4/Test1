@@ -1,21 +1,39 @@
 #,Fund / Firm,Amount Raised,Close Date,Investors / LPs,Source
-1,Balderton Capital (Early Stage IX + Growth II),$1.30bn,Aug 2024,Institutional LPs (oversubscribed),TechCrunch / PitchBook
-2,Atomico (Venture VI + Growth VI),$1.24bn,Sep 2024,Global institutional investors,TechCrunch / Atomico
-3,PXN Group (Par Equity + Praetura merger),£670m,Jun 2025,"Family offices, institutional investors, British Business Bank (Regional Angels Programme)",Sifted / Maddyness
-4,Evantic Capital (Fund I - B2B AI),€341m,Sep 2025,140 founders/operators network ('The Legends'); ex-Sequoia partner Matt Miller,EU-Startups / Sifted
-5,IQ Capital (Fund IV - Deep Tech),$200m,2025,Institutional investors (AUM reached $1bn across deep tech),Sifted
-6,IQ Capital (Growth Fund II),$200m,2025,Institutional investors,Sifted
-7,British Growth Partnership (Fund I - first close),£200m,Apr 2026,"Aegon UK, NatWest Cushon, M&G; London CIV (LGPS pool)",British Business Bank / GOV.UK
-8,Seedcamp (Fund VI),$180m,2025,200+ global investors,Sifted / Seedcamp
-9,OpenOcean (Fund IV),€100m,H1 2025,Institutional LPs (targeting €130m final close),Sifted / Vestbee
-10,Volution (Fund II - UK Scale-ups),$100m,Apr 2025,SBI Investment Co. (Japan) as co-GP; returning LPs from Fund I,Tech.eu / Goodwin
-11,DIG Ventures (B2B SaaS/AI Fund),$100m,2025,Not disclosed,Vestbee
-12,Backed VC (Fund III - DeepTech),€86m,Nov 2025,"Isomer Capital, Wunderland Capital, US family offices, wealth management firms",EU-Startups / Sifted
-13,Concept Ventures (Fund II - Pre-Seed),€75m,Sep 2025,"Founders of ElevenLabs, Wayve, FACEIT; US institutional investors",EU-Startups
-14,Par Equity (Scale-Up Fund),£75m,Jun 2025,"Family offices, institutional investors",Sifted / Angel Capital Scotland
-15,Ada Ventures (Fund II),£63m,2024,"British Patient Capital, institutional investors",Sifted / TechCrunch
-16,Playfair Capital (Fund III - Pre-Seed),£57m,2025,Not disclosed,Playfair / Visible.vc
-17,Mercuri (Fund II),£50m,2025,The Scott Trust (anchor in Fund I),Visible.vc
-18,Baobab Ventures (Solo GP Fund - AI/Robotics/Defence),$15m,2025,Solo GP (Carles Reina); London & Barcelona-based,Sifted
-19,Onstage (Early-Stage Fund),£10m,2025,"Peter Simon, Alex Chesterman; GPs from Concept Ventures, Creator Ventures, Chapter One, EPISODE17",Sifted
-20,Octopus Ventures (Pre-Seed Fund),£10m,2025,Octopus Group,Sifted
+1,Balderton Capital (Early Stage IX + Growth II),$1.30bn,Aug 2024,Institutional LPs (oversubscribed; first simultaneous early+growth raise),TechCrunch / PitchBook
+2,Atomico (Venture VI + Growth VI),$1.24bn,Sep 2024,Global institutional investors (50%+ increase on prior fund),TechCrunch / Atomico
+3,PXN Group (Par Equity + Praetura merger AUM),£670m,Jun 2025,"Family offices, institutional investors, British Business Bank (Regional Angels Programme), NPIF II",Sifted / Maddyness
+4,Cherry Ventures (Fund V + Opportunity Fund),$500m,Feb 2025,"Ilkka Paananen (Supercell), Miki Kusi (Wolt), Jochan Enghert (Flix); 2x oversubscribed",TechCrunch / Sifted
+5,Phoenix Court / LocalGlobe (new funds incl. Solar & Basecamp),$500m,2025,Institutional investors (nearing final close Oct 2025),Sifted / Silicon Canals
+6,20VC (Fund III - Seed + Series A),$400m,Oct 2024,"MIT Investment Management, RIT Capital Partners, Mubadala; US LPs ~50%",TechCrunch / PitchBook
+7,Evantic Capital (Fund I - B2B AI),€341m,Sep 2025,140 founders/operators ('The Legends'); ex-Sequoia partner Matt Miller,EU-Startups / Bloomberg
+8,Atempo Growth (Fund II - Growth Debt),€300m,Apr 2025,"Santander (anchor, up to €160m), British Business Investments, EIF, DECALIA",Santander / EU-Startups
+9,Lakestar (Continuation Fund I),$265m,Aug 2025,"Lexington Partners (lead), Industry Ventures, Performance Equity Management",Bloomberg / Sifted
+10,2150 (Fund II - Climate Tech),€210m,Jan 2026,"Viessmann Group, Chr. Augustinus Fabrikker, Novo Holdings, EIFO, Church Pension Group",EU-Startups / Tech.eu
+11,IQ Capital (Fund IV - Deep Tech),$200m,2025,Institutional investors (AUM reached $1bn across deep tech),Sifted
+12,IQ Capital (Growth Fund II),$200m,2025,Institutional investors,Sifted
+13,British Growth Partnership (Fund I - first close),£200m,Apr 2026,"Aegon UK, NatWest Cushon, M&G; London CIV (LGPS pool)",British Business Bank / GOV.UK
+14,Seedcamp (Fund VI),$180m,2025,200+ global investors,Sifted / Seedcamp
+15,Salica Investments (Growth Debt Fund II),£150m,Oct 2025,"British Business Bank (£30m), West Yorkshire Pension Fund (£30m), institutional LPs",British Business Bank / TFN
+16,Notion Capital (Growth Opportunities III),€114m,Sep 2025,Not disclosed,EU-Startups
+17,OpenOcean (Fund IV - AI/Data/Software),€100m,H1 2025,Institutional LPs (targeting €130m final close),Sifted / Vestbee
+18,Volution (Fund II - UK Scale-ups),$100m,Apr 2025,SBI Investment Co. (Japan) as co-GP; returning LPs from Fund I,Tech.eu / Goodwin
+19,DIG Ventures (B2B SaaS/AI Fund),$100m,2025,Not disclosed,Vestbee
+20,Episode 1 (Fund III),$95m,Feb 2024,Institutional investors,TechCrunch
+21,Albion VCTs (Top-up Offer - DeepTech/Healthcare/SaaS),£90m,Dec 2025,"VCT investors (oversubscribed from £60m target, triggered £30m overallotment)",TFN
+22,Backed VC (Fund III - DeepTech),€86m,Nov 2025,"Isomer Capital, Wunderland Capital, US family offices, wealth management firms",EU-Startups / Sifted
+23,Mercia (Northern VCTs - Supplemental Offer),£80m,2025/26,VCT investors,Mercia Asset Management
+24,Concept Ventures (Fund II - Pre-Seed),€75m,Sep 2025,"Founders of ElevenLabs, Wayve, FACEIT; US institutional investors",EU-Startups
+25,Par Equity (Scale-Up Fund),£75m,Jun 2025,"Family offices, institutional investors",Sifted / Angel Capital Scotland
+26,Ada Ventures (Fund II),£63m,Mar 2024,"British Patient Capital, institutional investors",Sifted / TechCrunch
+27,Playfair Capital (Fund III - Pre-Seed),£57m,2025,Not disclosed,Playfair / Visible.vc
+28,Outward VC (Fund II - first close),£51m,2025,British Business Bank (£30m cornerstone),British Business Bank
+29,Mercuri (Fund II),£50m,2025,The Scott Trust (anchor in Fund I),Visible.vc
+30,Meridian Health Ventures (HealthTech Fund),€45m,May 2025,"Guy's & St Thomas' NHS Trust, King's College Hospital, UCL Hospitals, Cedars-Sinai (US)",EU-Startups / Vestbee
+31,Triple Point Venture VCT (New Offer),£45m,2025/26,VCT investors (£10m + £35m overallotment facility),Triple Point
+32,Araya Ventures (Super Angel Fund),$26m,Jul 2025,"British Business Investments (£5m cornerstone), Cendana Capital, Isomer Capital, RSJ Investments",Yahoo Finance / Vestbee
+33,Molten Ventures VCT (New Offer),£20m,Feb 2026,VCT investors (£10m initial + £10m overallotment),Molten Ventures
+34,Baobab Ventures (Solo GP Fund - AI/Robotics/Defence),$15m,Q4 2025,"Cendana Capital, Isomer Capital, RSJ Investments, Emergence Ventures",Sifted
+35,Fuel Ventures VCT (New Offer),£12m,2025/26,VCT investors,Fuel Ventures
+36,Ascension Ventures (Regional Fund),€12m,Jan 2026,EIF commitment; supporting regional early-stage founders,BeBeez
+37,Onstage (Early-Stage Fund),£10m,Q4 2025,"Peter Simon, Alex Chesterman; GPs from Concept Ventures, Creator Ventures, Chapter One, EPISODE17",Sifted
+38,Octopus Ventures (Pre-Seed Fund),£10m,2025,Octopus Group,Sifted

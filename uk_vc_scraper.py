@@ -41,17 +41,21 @@ CUTOFF_DATE = datetime.now() - timedelta(days=365)
 
 
 # ---------------------------------------------------------------------------
-# Curated dataset of UK VC fund raises (Apr 2025 - Apr 2026)
+# Curated dataset of UK VC fund raises (approx. Apr 2024 - Apr 2026)
 # Compiled from: Sifted, TechCrunch, BVCA, EU-Startups, Vestbee, UKTN,
-# Private Equity Wire, British Business Bank, PitchBook (public articles)
+# Private Equity Wire, British Business Bank, PitchBook (public articles),
+# Bloomberg, Tech.eu, GOV.UK, Silicon Canals, Yahoo Finance
 # ---------------------------------------------------------------------------
 CURATED_UK_VC_FUND_RAISES = [
+    # -------------------------------------------------------------------------
+    # Mega-funds (>$500m)
+    # -------------------------------------------------------------------------
     {
         "fund_name": "Balderton Capital (Early Stage IX + Growth II)",
         "amount": 1_300_000_000,
         "currency": "USD",
         "close_date": "Aug 2024",
-        "investors": "Institutional LPs (oversubscribed)",
+        "investors": "Institutional LPs (oversubscribed; first simultaneous early+growth raise)",
         "source": "TechCrunch / PitchBook",
     },
     {
@@ -59,24 +63,75 @@ CURATED_UK_VC_FUND_RAISES = [
         "amount": 1_240_000_000,
         "currency": "USD",
         "close_date": "Sep 2024",
-        "investors": "Global institutional investors",
+        "investors": "Global institutional investors (50%+ increase on prior fund)",
         "source": "TechCrunch / Atomico",
     },
     {
-        "fund_name": "PXN Group (Par Equity + Praetura merger)",
+        "fund_name": "PXN Group (Par Equity + Praetura merger AUM)",
         "amount": 670_000_000,
         "currency": "GBP",
         "close_date": "Jun 2025",
-        "investors": "Family offices, institutional investors, British Business Bank (Regional Angels Programme)",
+        "investors": "Family offices, institutional investors, British Business Bank (Regional Angels Programme), NPIF II",
         "source": "Sifted / Maddyness",
+    },
+    {
+        "fund_name": "Cherry Ventures (Fund V + Opportunity Fund)",
+        "amount": 500_000_000,
+        "currency": "USD",
+        "close_date": "Feb 2025",
+        "investors": "Ilkka Paananen (Supercell), Miki Kusi (Wolt), Jochan Enghert (Flix); 2x oversubscribed",
+        "source": "TechCrunch / Sifted",
+    },
+    {
+        "fund_name": "Phoenix Court / LocalGlobe (new funds incl. Solar & Basecamp)",
+        "amount": 500_000_000,
+        "currency": "USD",
+        "close_date": "2025",
+        "investors": "Institutional investors (nearing final close Oct 2025)",
+        "source": "Sifted / Silicon Canals",
+    },
+    # -------------------------------------------------------------------------
+    # Large funds ($200m - $500m)
+    # -------------------------------------------------------------------------
+    {
+        "fund_name": "20VC (Fund III - Seed + Series A)",
+        "amount": 400_000_000,
+        "currency": "USD",
+        "close_date": "Oct 2024",
+        "investors": "MIT Investment Management, RIT Capital Partners, Mubadala; US LPs ~50%",
+        "source": "TechCrunch / PitchBook",
     },
     {
         "fund_name": "Evantic Capital (Fund I - B2B AI)",
         "amount": 341_000_000,
         "currency": "EUR",
         "close_date": "Sep 2025",
-        "investors": "140 founders/operators network ('The Legends'); ex-Sequoia partner Matt Miller",
-        "source": "EU-Startups / Sifted",
+        "investors": "140 founders/operators ('The Legends'); ex-Sequoia partner Matt Miller",
+        "source": "EU-Startups / Bloomberg",
+    },
+    {
+        "fund_name": "Atempo Growth (Fund II - Growth Debt)",
+        "amount": 300_000_000,
+        "currency": "EUR",
+        "close_date": "Apr 2025",
+        "investors": "Santander (anchor, up to €160m), British Business Investments, EIF, DECALIA",
+        "source": "Santander / EU-Startups",
+    },
+    {
+        "fund_name": "Lakestar (Continuation Fund I)",
+        "amount": 265_000_000,
+        "currency": "USD",
+        "close_date": "Aug 2025",
+        "investors": "Lexington Partners (lead), Industry Ventures, Performance Equity Management",
+        "source": "Bloomberg / Sifted",
+    },
+    {
+        "fund_name": "2150 (Fund II - Climate Tech)",
+        "amount": 210_000_000,
+        "currency": "EUR",
+        "close_date": "Jan 2026",
+        "investors": "Viessmann Group, Chr. Augustinus Fabrikker, Novo Holdings, EIFO, Church Pension Group",
+        "source": "EU-Startups / Tech.eu",
     },
     {
         "fund_name": "IQ Capital (Fund IV - Deep Tech)",
@@ -111,7 +166,26 @@ CURATED_UK_VC_FUND_RAISES = [
         "source": "Sifted / Seedcamp",
     },
     {
-        "fund_name": "OpenOcean (Fund IV)",
+        "fund_name": "Salica Investments (Growth Debt Fund II)",
+        "amount": 150_000_000,
+        "currency": "GBP",
+        "close_date": "Oct 2025",
+        "investors": "British Business Bank (£30m), West Yorkshire Pension Fund (£30m), institutional LPs",
+        "source": "British Business Bank / TFN",
+    },
+    # -------------------------------------------------------------------------
+    # Mid-size funds ($50m - $200m)
+    # -------------------------------------------------------------------------
+    {
+        "fund_name": "Notion Capital (Growth Opportunities III)",
+        "amount": 114_000_000,
+        "currency": "EUR",
+        "close_date": "Sep 2025",
+        "investors": "Not disclosed",
+        "source": "EU-Startups",
+    },
+    {
+        "fund_name": "OpenOcean (Fund IV - AI/Data/Software)",
         "amount": 100_000_000,
         "currency": "EUR",
         "close_date": "H1 2025",
@@ -135,12 +209,36 @@ CURATED_UK_VC_FUND_RAISES = [
         "source": "Vestbee",
     },
     {
+        "fund_name": "Episode 1 (Fund III)",
+        "amount": 95_000_000,
+        "currency": "USD",
+        "close_date": "Feb 2024",
+        "investors": "Institutional investors",
+        "source": "TechCrunch",
+    },
+    {
+        "fund_name": "Albion VCTs (Top-up Offer - DeepTech/Healthcare/SaaS)",
+        "amount": 90_000_000,
+        "currency": "GBP",
+        "close_date": "Dec 2025",
+        "investors": "VCT investors (oversubscribed from £60m target, triggered £30m overallotment)",
+        "source": "TFN",
+    },
+    {
         "fund_name": "Backed VC (Fund III - DeepTech)",
         "amount": 86_000_000,
         "currency": "EUR",
         "close_date": "Nov 2025",
         "investors": "Isomer Capital, Wunderland Capital, US family offices, wealth management firms",
         "source": "EU-Startups / Sifted",
+    },
+    {
+        "fund_name": "Mercia (Northern VCTs - Supplemental Offer)",
+        "amount": 80_000_000,
+        "currency": "GBP",
+        "close_date": "2025/26",
+        "investors": "VCT investors",
+        "source": "Mercia Asset Management",
     },
     {
         "fund_name": "Concept Ventures (Fund II - Pre-Seed)",
@@ -162,7 +260,7 @@ CURATED_UK_VC_FUND_RAISES = [
         "fund_name": "Ada Ventures (Fund II)",
         "amount": 63_000_000,
         "currency": "GBP",
-        "close_date": "2024",
+        "close_date": "Mar 2024",
         "investors": "British Patient Capital, institutional investors",
         "source": "Sifted / TechCrunch",
     },
@@ -175,6 +273,14 @@ CURATED_UK_VC_FUND_RAISES = [
         "source": "Playfair / Visible.vc",
     },
     {
+        "fund_name": "Outward VC (Fund II - first close)",
+        "amount": 51_000_000,
+        "currency": "GBP",
+        "close_date": "2025",
+        "investors": "British Business Bank (£30m cornerstone)",
+        "source": "British Business Bank",
+    },
+    {
         "fund_name": "Mercuri (Fund II)",
         "amount": 50_000_000,
         "currency": "GBP",
@@ -182,19 +288,70 @@ CURATED_UK_VC_FUND_RAISES = [
         "investors": "The Scott Trust (anchor in Fund I)",
         "source": "Visible.vc",
     },
+    # -------------------------------------------------------------------------
+    # Smaller funds (<$50m)
+    # -------------------------------------------------------------------------
+    {
+        "fund_name": "Meridian Health Ventures (HealthTech Fund)",
+        "amount": 44_700_000,
+        "currency": "EUR",
+        "close_date": "May 2025",
+        "investors": "Guy's & St Thomas' NHS Trust, King's College Hospital, UCL Hospitals, Cedars-Sinai (US)",
+        "source": "EU-Startups / Vestbee",
+    },
+    {
+        "fund_name": "Triple Point Venture VCT (New Offer)",
+        "amount": 45_000_000,
+        "currency": "GBP",
+        "close_date": "2025/26",
+        "investors": "VCT investors (£10m + £35m overallotment facility)",
+        "source": "Triple Point",
+    },
+    {
+        "fund_name": "Araya Ventures (Super Angel Fund)",
+        "amount": 26_300_000,
+        "currency": "USD",
+        "close_date": "Jul 2025",
+        "investors": "British Business Investments (£5m cornerstone), Cendana Capital, Isomer Capital, RSJ Investments",
+        "source": "Yahoo Finance / Vestbee",
+    },
+    {
+        "fund_name": "Molten Ventures VCT (New Offer)",
+        "amount": 20_000_000,
+        "currency": "GBP",
+        "close_date": "Feb 2026",
+        "investors": "VCT investors (£10m initial + £10m overallotment)",
+        "source": "Molten Ventures",
+    },
     {
         "fund_name": "Baobab Ventures (Solo GP Fund - AI/Robotics/Defence)",
         "amount": 15_000_000,
         "currency": "USD",
-        "close_date": "2025",
-        "investors": "Solo GP (Carles Reina); London & Barcelona-based",
+        "close_date": "Q4 2025",
+        "investors": "Cendana Capital, Isomer Capital, RSJ Investments, Emergence Ventures",
         "source": "Sifted",
+    },
+    {
+        "fund_name": "Fuel Ventures VCT (New Offer)",
+        "amount": 12_000_000,
+        "currency": "GBP",
+        "close_date": "2025/26",
+        "investors": "VCT investors",
+        "source": "Fuel Ventures",
+    },
+    {
+        "fund_name": "Ascension Ventures (Regional Fund)",
+        "amount": 11_500_000,
+        "currency": "EUR",
+        "close_date": "Jan 2026",
+        "investors": "EIF commitment; supporting regional early-stage founders",
+        "source": "BeBeez",
     },
     {
         "fund_name": "Onstage (Early-Stage Fund)",
         "amount": 10_000_000,
         "currency": "GBP",
-        "close_date": "2025",
+        "close_date": "Q4 2025",
         "investors": "Peter Simon, Alex Chesterman; GPs from Concept Ventures, Creator Ventures, Chapter One, EPISODE17",
         "source": "Sifted",
     },
